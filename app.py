@@ -9,9 +9,8 @@ class MainWindowApp(QDialog):
         self.ui.setupUi(self)
         self.test()
         self.initSlots()
-        self.tez_yolu = "D:/Projects/TezAnalizi/TezOrnegi.pdf"
-        self.ui.txt_dosya_yolu.setText(self.tez_yolu)
         self.initParameters()
+        self.control()
         self.ui.txt_dosya_yolu.setEnabled(False)
 
     def initSlots(self):
@@ -54,19 +53,20 @@ class MainWindowApp(QDialog):
         self.analiz_baslat()
 
     def test(self):
-        self.ui.txt_giris_sayfalari.setText("12,13,14")
-        self.ui.txt_baslik_sayfasi.setText("1")
-        self.ui.txt_cizelge_sayfalari.setText("9,10")
-        self.ui.txt_sekiller_sayfalari.setText("11")
-        self.ui.txt_baslangic_sayfasi.setText("12")
-        self.ui.txt_icindekiler_sayfasi.setText("7,8")
+        pass
+        # self.ui.txt_giris_sayfalari.setText("12,13,14")
+        # self.ui.txt_baslik_sayfasi.setText("1")
+        # self.ui.txt_cizelge_sayfalari.setText("9,10")
+        # self.ui.txt_sekiller_sayfalari.setText("11")
+        # self.ui.txt_baslangic_sayfasi.setText("12")
+        # self.ui.txt_icindekiler_sayfasi.setText("7,8")
 
     def dosya_sec(self):
         fname = QFileDialog.getOpenFileName(self, 'Open file',
                                             'c:\\', "Image files (*.pdf)")
         self.tez_yolu = fname[0]
         self.ui.txt_dosya_yolu.setText(self.tez_yolu)
-        # self.control()
+        self.control()
 
     def control(self):
         if len(self.ui.txt_dosya_yolu.text()) < 5:
